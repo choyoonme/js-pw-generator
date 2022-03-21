@@ -1,6 +1,6 @@
 // Assignment Code
-
-//assign a variable pointing to button in the html
+var specialChar = true
+    //assign a variable pointing to button in the html
 var generateBtn = document.querySelector("#generate");
 
 //make functions to generate random characters, including lowercase, uppercase, numbers, and special characters in password
@@ -41,18 +41,24 @@ function writePassword() {
     var password = generatePassword();
     var passwordText = document.querySelector("#password");
 
-    // WHEN prompted for the length of the password
-    // THEN I choose a length of at least 8 characters and no more than 128 characters
-    var pwLength = prompt("Enter the number of characters your password requires:");
-    console.log("Password length: ", pwLength);
-    if (pwLength < 8 || pwLength > 128) {
-        window.alert("Passwords should have a minumum of 8 and no more than 128 characters.");
-        console.log("Password length", pwLength);
+    //Assign a variable to length of password
+    //Use a prompt to find out required length
+    //Use if () to make sure length falls between 8 and 12
+    var passwordLength = prompt("Enter the number of characters your password requires:");
+    console.log("Password length: ", passwordLength);
+    if (passwordLength < 8 || passwordLength > 12) {
+        window.alert("Passwords should have a minumum of 8 and no more than 12 characters.");
+        console.log("Password length", passwordLength);
     }
-
-    // WHEN asked for character types to include in the password
-    // THEN I confirm whether or not to include lowercase, uppercase, numeric, and/or special characters
-
+    // Assign variables to prompt whether or not to use upper/lowercase letters, numbers, and/or special character
+    //Use IF statement and boolean data types for each prompt
+    //Wire everything up to functions
+    var letterCase = prompt("Should your password include upper and lowercase letters?");
+    console.log(letterCase);
+    var number = prompt("Should your password include a number?");
+    console.log(number);
+    var specCharacter = prompt("Should your password include a special character?");
+    console.log(specCharacter);
 
 
     // WHEN I answer each prompt
@@ -63,11 +69,12 @@ function writePassword() {
 }
 
 //Add event listener to the generateBtn
-//target the html we want to trigger
-//tell it what event to listen for
-//give it a function to run when the event happens
+//Target the html tag we want to trigger
+//Tell it what event to listen for
+//Give it a function to run when the event happens
+generateBtn.addEventListener("click", writePassword);
+
+//Write function to generate password value in the input field
 function generatePassword() {
     return ("unique password");
 }
-// Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
