@@ -3,28 +3,37 @@
 //assign a variable pointing to button in the html
 var generateBtn = document.querySelector("#generate");
 
-//make functions to generate random characters in password
+//make functions to generate random characters, including lowercase, uppercase, numbers, and special characters in password
+
+//main function to recall in the functions that follow
 function getRandomInt(min, max) {
     min = Math.ceil(min);
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min) + min);
 }
-
+//function to return random uppercase letters if selected
 function randomLetter() {
     var upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     var index = getRandomInt(0, 25);
     return upperCase[index];
 }
-
+//function to return random lowercase letters if selected
 function randomLowerCaseLetter() {
     const letter = randomLetter()
     return letter.toLowerCase()
 }
-
+//function to return a random special characters if selected 
 function randomSpecChar() {
     var specialChar = "!@#$%^&*()?/;:~";
     var index = getRandomInt(0, 14);
     return specialChar[index];
+}
+
+//function to return a random number if selected
+function randomNumber() {
+    var number = "0123456789";
+    var index = getRandomInt(0, 10);
+    return number[index];
 }
 
 // Write password to the #password input
