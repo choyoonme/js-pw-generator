@@ -1,84 +1,43 @@
-// Assignment Code
-var specialChar = true
-    //assign a variable pointing to button in the html
-var generateBtn = document.querySelector("#generate");
+//Declare variables for password character content. Instead of declaring a variable for lowercase, use .toLowerCase on the uppercase variable.
+const letters = "ABCDEFGHIJKLMNOPQRSTUVWYZ";
+const spec = "~!@#$%^&*()";
+const numeric = "0123456789";
 
-//Assign a variable to length of password
-//Use a prompt to find out required length
-//Use if () to make sure length falls between 8 and 12
-var passwordLength = prompt("Enter the number of characters your password requires:");
-console.log("Password length: ", passwordLength);
-if (passwordLength < 8 || passwordLength > 12) {
-    window.alert("Passwords should have a minumum of 8 and no more than 12 characters.");
-    console.log("Password length", passwordLength);
-}
-// Assign variables to prompt whether or not to use upper/lowercase letters, numbers, and/or special character
-//Use IF statement and boolean data types for each prompt
-//Wire everything up to functions
-var letterCase = prompt("Should your password include upper and lowercase letters?");
-console.log(letterCase);
-var number = prompt("Should your password include a number?");
-console.log(number);
-var specCharacter = prompt("Should your password include a special character?");
-console.log(specCharacter);
+//Target button in HTML document and use an event listener to trigger function when clicked on.
+document
+    .querySelector("button")
+    .addEventListener("click", handleClick);
 
+//Write a function that includes defining variables for password criteria: (1)character length, (2)uppercase letters, (3)lowercase letters, (4)numbers, or (5)special characters. Assign variables to prompt/confirm criteria.
+function handleClick() {
+    let length = prompt("Enter the number (between 8 and 128) of characters your password requires:");
+    let upperCase = confirm("Confirm whether your password requires uppercase letters. (OK for yes, Cancel for no)");
+    let lowerCase = confirm("Confirm whether your password requires lowercase letters. (OK for yes, Cancel for no)");
+    let number = confirm("Confirm whether your password requires numbers. (OK for yes, Cancel for no)");
+    let specChar = confirm("Confirm whether your password requires special character. (OK for yes, Cancel for no)");
+    //Declare a variable for collected ternary criteria and for the generated password
+    let temp = "";
+    let password = "";
 
-// WHEN I answer each prompt
-// THEN my input should be validated and at least one character type should be selected
+    /*Write ternary statements in place of if/else statements
 
-passwordText.value = password;
+    if (upperCase === true) {
+        temp = temp + letters 
+    } else {
+        temp = temp + ""
+    }
+    */
 
+    temp += upperCase ? letters : "";
+    temp += lowerCase ? letters.toLowerCase() : "";
+    temp += number ? numeric : "";
+    temp += specChar ? spec : "";
 
+    //Write a for loop to run through the character length that the user specifies in the first prompt and the boolean results of temp and use Math.random and Math.floor to round down.
+    for (let i = 0; i < length; i++) {
+        password += temp[Math.floor(Math.random() * temp.length)]
+    };
 
-//make functions to generate random characters, including lowercase, uppercase, numbers, and special characters in password
-
-//main function to recall in the functions that follow
-function getRandomInt(min, max) {
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min) + min);
-}
-//function to return random uppercase letters if selected
-function randomLetter() {
-    var upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    var index = getRandomInt(0, 25);
-    return upperCase[index];
-}
-//function to return random lowercase letters if selected
-function randomLowerCaseLetter() {
-    const letter = randomLetter()
-    return letter.toLowerCase()
-}
-//function to return a random special characters if selected 
-function randomSpecChar() {
-    var specialChar = "!@#$%^&*()?/;:~";
-    var index = getRandomInt(0, 14);
-    return specialChar[index];
-}
-
-//function to return a random number if selected
-function randomNumber() {
-    var number = "0123456789";
-    var index = getRandomInt(0, 10);
-    return number[index];
-}
-
-// Write password to the #password input
-function writePassword() {
-    var password = generatePassword();
-    var passwordText = document.querySelector("#password");
-}
-
-
-
-
-//Add event listener to the generateBtn
-//Target the html tag we want to trigger
-//Tell it what event to listen for
-//Give it a function to run when the event happens
-generateBtn.addEventListener("click", writePassword);
-
-//Write function to generate password value in the input field
-function generatePassword() {
-    return ("unique password");
+    //Target textarea in document to enter password result.
+    document.querySelector("textarea").innerText = password;
 }
