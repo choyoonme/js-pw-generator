@@ -10,11 +10,11 @@ document
 
 //Write a function that includes defining variables for password criteria: (1)character length, (2)uppercase letters, (3)lowercase letters, (4)numbers, or (5)special characters. Assign variables to prompt/confirm criteria.
 function handleClick() {
-    let length = prompt("Enter the number (between 8 and 128) of characters your password requires:");
-    let upperCase = confirm("Confirm whether your password requires uppercase letters. (OK for yes, Cancel for no)");
-    let lowerCase = confirm("Confirm whether your password requires lowercase letters. (OK for yes, Cancel for no)");
-    let number = confirm("Confirm whether your password requires numbers. (OK for yes, Cancel for no)");
-    let specChar = confirm("Confirm whether your password requires special character. (OK for yes, Cancel for no)");
+    let length = prompt("Enter a number between 8 and 128 for the length that your password requires:");
+    let upperCase = confirm("Confirm whether your password requires uppercase letters. (OK for YES, Cancel for NO)");
+    let lowerCase = confirm("Confirm whether your password requires lowercase letters. (OK for YES, Cancel for NO)");
+    let number = confirm("Confirm whether your password requires numbers. (OK for YES, Cancel for NO)");
+    let specChar = confirm("Confirm whether your password requires special character. (OK for YES, Cancel for NO)");
     //Declare a variable for collected ternary criteria and for the generated password
     let temp = "";
     let password = "";

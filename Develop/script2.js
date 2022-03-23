@@ -1,34 +1,10 @@
 // Assignment Code
 var specialChar = true
-    //assign a variable pointing to button in the html
+
+//assign a variable pointing to button in the html
 var generateBtn = document.querySelector("#generate");
 
-//Assign a variable to length of password
-//Use a prompt to find out required length
-//Use if () to make sure length falls between 8 and 12
-// var passwordLength = prompt("Enter the number of characters your password requires:");
-// console.log("Password length: ", passwordLength);
-// if (passwordLength < 8 || passwordLength > 12) {
-//     window.alert("Passwords should have a minumum of 8 and no more than 12 characters.");
-//     console.log("Password length", passwordLength);
-// }
-// Assign variables to prompt whether or not to use upper/lowercase letters, numbers, and/or special character
-//Use IF statement and boolean data types for each prompt
-//Wire everything up to functions
-// var letterCase = prompt("Should your password include upper and lowercase letters?");
-// console.log(letterCase);
-// var number = prompt("Should your password include a number?");
-// console.log(number);
-// var specCharacter = prompt("Should your password include a special character?");
-// console.log(specCharacter);
-
-
-// WHEN I answer each prompt
-// THEN my input should be validated and at least one character type should be selected
-
-// passwordText.value = password;
-
-
+passwordText.value = password;
 
 //make functions to generate random characters, including lowercase, uppercase, numbers, and special characters in password
 
@@ -85,7 +61,7 @@ generateBtn.addEventListener("click", writePassword);
 //after loop runs 3 times a result will three random characters 
 function generatePassword() {
     let result = "";
-    for (let i = 0; i < 3; i++) {
+    for (let i = 0; i < charLength.length; i++) {
         result = result + getCharacter();
         console.log(result);
     }
@@ -93,9 +69,17 @@ function generatePassword() {
     return ("unique password");
 }
 
+function charLength() {
+    const answer = prompt("Enter how many characters you password requires:");
+    if (answer < 8 || answer > 128) {
+        window.alert("Character length should be between 8 and 128.");
+    } else {
+        return true;
+    }
+}
 
-function doesUserWantLetter() {
-    const answer = prompt("Do you want a letter?");
+function specChar() {
+    const answer = prompt("Confirm that it needs a special character.");
     if (answer === "yes") {
         return true;
     } else {
@@ -103,8 +87,8 @@ function doesUserWantLetter() {
     }
 }
 
-function doesUserWantUppercase() {
-    const answer = prompt("Do you want uppercase letters?");
+function upperCase() {
+    const answer = prompt("Confirm that it needs uppercase letters.");
     if (answer === "yes") {
         return true;
     } else {
@@ -112,8 +96,8 @@ function doesUserWantUppercase() {
     }
 }
 
-function doesUserWantARandomNumber() {
-    const answer = prompt("Do you want a random number?");
+function number() {
+    const answer = prompt("Confirm that it needs a number.");
     if (answer === "yes") {
         return true;
     } else {

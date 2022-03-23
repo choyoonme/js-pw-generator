@@ -12,7 +12,7 @@ Modify starter code to create an application that generates random secure passwo
 
 
 ## Acceptance Criteria
-Using JavaScript we've learned this week, write prompts to determine selected criteria through a series of prompts and alerts that follow if/else. Assign variables to arrays of strings that contain letters, numbers, and special characters. Write functions to return random characters falling within a min and max range using the getRandomInt. Use for/while loops to generate a matching number of characters.
+Using JavaScript we've learned this week: assign variables to arrays of strings that contain letters, numbers, and special characters; write prompts to determine chosen criteria for password through a series of prompts/confirms that follow if/else/ or ternary statements; write for loop to run through specified length and boolean data. Target the text area in the document to input password result using querySelector and innerText.
 
 ```
 GIVEN I need a new, secure password
