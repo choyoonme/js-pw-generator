@@ -4,9 +4,7 @@ const spec = "~!@#$%^&*()";
 const numeric = "0123456789";
 
 //Target button in HTML document and use an event listener to trigger function when clicked on.
-document
-    .querySelector("button")
-    .addEventListener("click", handleClick);
+document.querySelector("button").addEventListener("click", handleClick);
 
 //Write a function that includes defining variables for password criteria: (1)character length, (2)uppercase letters, (3)lowercase letters, (4)numbers, or (5)special characters. Assign variables to prompt/confirm criteria.
 function handleClick() {
@@ -24,7 +22,21 @@ function handleClick() {
     if (upperCase === true) {
         temp = temp + letters 
     } else {
-        temp = temp + ""
+        temp = temp + "";
+    }
+    if (lowerCase === true) {
+        temp = temp + letters.toLowerCase() 
+    } else {
+        temp = temp + "";
+    }
+    if (number === true) {
+        temp = temp + numeric 
+    } else {
+        temp = temp + "";
+    }
+    if (specChar === true) {
+    } else {
+        temp = temp + "";
     }
     */
 
