@@ -25,4 +25,4 @@ THEN the password is either displayed in an alert or written to the page
 
 ## Mock-Up
 
-![The Password Generator application displays a red button to "Generate Password".](./Assets/03-javascript-homework-demo.png)
+![The Password Generator application displays a red button to "Generate Password".](./03-javascript-homework-demo.png)
